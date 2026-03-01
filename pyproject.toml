@@ -25,6 +25,9 @@ dev = [
   "pytest>=8.0",
 ]
 
+[tool.poetry]
+package-mode = false
+
 [tool.setuptools]
 packages = ["movierec"]
 
