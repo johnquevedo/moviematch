@@ -1,14 +1,19 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 
 import streamlit as st
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from movierec.artifacts import MODEL_ARTIFACTS_FILENAME, load_model_artifacts
 from movierec.recommend import recommend, similar_movies
 
 
-ARTIFACTS_DIR = Path(__file__).resolve().parents[1] / "artifacts"
+ARTIFACTS_DIR = ROOT / "artifacts"
 
 
 @st.cache_resource
