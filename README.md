@@ -1,10 +1,8 @@
 # MovieMatch
 
-MovieMatch is a small recommender systems project built around MovieLens 100K. A recruiter can search movies, rate a short list of titles, and get personalized recommendations in a Streamlit app. The offline training step learns movie embeddings from historical positive interactions, and the app infers a brand-new user profile from the movies rated during the session.
+MovieMatch is a small recommender systems project built around MovieLens 100K. The user can search movies, rate a short list of titles, and get personalized recommendations in a Streamlit app. The offline training step learns movie embeddings from historical positive interactions, and the app infers a brand-new user profile from the movies rated during the session.
 
 Live demo: [movie-match-app.streamlit.app](https://movie-match-app.streamlit.app/)
-
-![MovieMatch screenshot](assets/streamlit-screenshot.png)
 
 ## What It Does
 
