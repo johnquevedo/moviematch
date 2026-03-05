@@ -2,6 +2,8 @@
 
 MovieMatch is a small recommender systems project built around MovieLens 100K. A recruiter can search movies, rate a short list of titles, and get personalized recommendations in a Streamlit app. The offline training step learns movie embeddings from historical positive interactions, and the app infers a brand-new user profile from the movies rated during the session.
 
+Live demo: [movie-match-app.streamlit.app](https://movie-match-app.streamlit.app/)
+
 ![MovieMatch screenshot](assets/streamlit-screenshot.png)
 
 ## How It Works
@@ -26,6 +28,13 @@ movierec-interactive/
   assets/
 ```
 
+## Tech Stack
+
+- Python 3.11+
+- Streamlit
+- NumPy, Pandas, SciPy
+- `implicit` (ALS)
+
 ## Quickstart
 
 From the `movierec-interactive/` directory:
@@ -36,6 +45,13 @@ python scripts/download_data.py
 python scripts/train_model.py
 streamlit run app/streamlit_app.py
 ```
+
+## Results Snapshot
+
+Compared with a simple popularity recommender, the personalized ALS model:
+- improved top-10 recommendation hit rate by about `2.2x` (`0.2463` vs `0.1125`)
+- ranked good suggestions higher by about `2.1x` (`0.1253` vs `0.0605`)
+- increased catalog coverage by about `9.6x` (`0.3704` vs `0.0386`)
 
 ## Evaluation
 
@@ -76,6 +92,7 @@ Popularity             0.0637                   0.0362           0.0589
 5. Run `python scripts/download_data.py` and `python scripts/train_model.py` locally once so `artifacts/model_artifacts.pkl` exists.
 6. Commit `artifacts/model_artifacts.pkl` to GitHub, but do not commit `artifacts/data/`.
 7. Deploy without secrets; this project does not require API keys.
+8. The app uses `.streamlit/config.toml` with `fileWatcherType = "none"` to reduce watcher-related issues in hosted environments.
 
 ## Notes
 
